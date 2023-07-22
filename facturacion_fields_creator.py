@@ -5,15 +5,15 @@ def create_field(ancho_panel=400, alto_panel=50):
     print("Ingresar variable contenedora del campo:\n")
     content_varname = input("  []>_ ")
 
-    print("Ingresar nombre del campo:\n") 
+    print("Ingresar nombre del campo:\n")
     field_name = input("  []>_ ")
 
     print("Especificar width y height?")
     resp = input("  [](S/N)>_ ")
 
     if resp == "S" or resp == "s":
-        ancho_panel = input("  [USUARIO](width)>_ ")
-        alto_panel = input("  [USUARIO](height)>_ ")
+        ancho_panel = float(input("  [USUARIO](width)>_ "))
+        alto_panel = float(input("  [USUARIO](height)>_ "))
     elif resp == "N" or resp == "n":
         print("Se procedera con valores default")
     else:
@@ -42,18 +42,18 @@ def create_field(ancho_panel=400, alto_panel=50):
     jPanel{field_name}.setBorder(new javax.swing.border.EtchedBorder());
     jPanel{field_name}.setOpaque(false);
     jPanel{field_name}.setBounds(20, 175, {ancho_panel}, {alto_panel}); // Editar 20 (x), y 175 (y) a conveniencia
-    
+
     // ----- Label {field_name}
     jPanel{field_name}.add(jLabel{field_name});
     jLabel{field_name}.setText("{field_name}");
     jLabel{field_name}.setFont(new java.awt.Font("Verdana", 0, 12));
     jLabel{field_name}.setBounds({x_label}, {y_label}, {w_label}, 14);
-    
+
     // ----- Field {field_name}
     jPanel{field_name}.add(jField{field_name});
     jField{field_name}.setFont(new java.awt.Font("Verdana", 0, 12));
     jField{field_name}.setBounds({x_field}, {y_field}, {w_field}, 20);
-    
+
     // ----- Agregar Todo el conjunto al container
     {content_varname}.add(jPanel{field_name});
    // END //
@@ -71,10 +71,10 @@ def create_button():
     print("Ingresar variable contenedora del boton:\n")
     content_varname = input("  []>_ ")
 
-    print("Ingresar nombre del boton:\n") 
+    print("Ingresar nombre del boton:\n")
     field_name = input("  []>_ ")
 
-    print("Ingresar nombre de la funcion del boton:\n") 
+    print("Ingresar nombre de la funcion del boton:\n")
     nombre_funcion = input("  []>_ ")
 
     code_file = open(f"{field_name}_java_code.txt", "w")
@@ -110,7 +110,7 @@ def create_button():
     code_file.close()
 
 def main():
-    menu = { 
+    menu = {
         1: "create_field()",
         2: "create_button()",
         3: lambda: quit()
@@ -129,13 +129,12 @@ def main():
     print("###############################################################################\n\n")
     opc = input("#  []>_ ")
     opc = int(opc)
-    
 
-    system("cls")
+
+    system("clear")
     exec(menu[opc])
-   
+
 
 if __name__ == "__main__":
     main()
     print("############### DONE ###############")
-    system("pause")

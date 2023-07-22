@@ -24,16 +24,15 @@ def char2ascii(caracter):
     return new_ascii
 
 
-print "################# ENCRIPTADOR / DESENCRIPTADOR #################\n"
+print("################# ENCRIPTADOR / DESENCRIPTADOR #################\n")
 # LLAVE PUBLICA: 3233
-print "1. Encriptar"  # Llave: 17
-print "2. Desencriptar"  # Llave: 2753
-eleccion = input("   >_ ")
-os.system("cls")
+print("1. Encriptar")  # Llave: 17
+print("2. Desencriptar")  # Llave: 2753
+eleccion = int(input("   >_ "))
+os.system("clear")
 if eleccion == 2:
-    print "Ingresar los ASCIIs a desencriptar:\n"
-    # print "Ingresar la cantidad de ASCIIs a desencriptar:\n"
-    asciis_sep = raw_input("   >_ ")
+    print("Ingresar los ASCIIs a desencriptar:\n")
+    asciis_sep = input("   >_ ")
 
     asciis = asciis_sep.split('|')
 
@@ -45,13 +44,12 @@ if eleccion == 2:
     for ascii in des_asciis:
         frase += ascii2char(ascii)
 
-    os.system("cls")
-    print "Frase desencriptada:\n"
-    print frase
-    os.system("pause")
+    os.system("clear")
+    print("Frase desencriptada:\n")
+    print(frase)
 elif eleccion == 1:
-    print "Ingresar palabra(s) a encriptar:\n"
-    palabras = raw_input("   >_ ")
+    print("Ingresar palabra(s) a encriptar:\n")
+    palabras = input("   >_ ")
 
     asciis_a_encriptar = []
     for eachar in palabras:
@@ -66,6 +64,5 @@ elif eleccion == 1:
         frase_encriptada += str(encriptado[it])+"|"
 
     frase_encriptada = frase_encriptada[:len(frase_encriptada)-1]
-    print "La frase encriptada es:\n"
-    print frase_encriptada
-    os.system("pause")
+    print("La frase encriptada es:\n")
+    print(frase_encriptada)
